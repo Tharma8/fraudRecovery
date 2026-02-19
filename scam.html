@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCAM CATEGORIES | BUREAU OF FRAUD INTELLIGENCE</title>
+    <title>JURISDICTIONAL VECTORS | BUREAU OF FRAUD INTELLIGENCE</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Lexend:wght@400;700;900&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -14,104 +15,166 @@
         :root {
             --gov-navy: #001f3f;
             --gov-gold: #c5a059;
+            --cashapp-green: #00d632;
+            --zelle-purple: #6d1ed1;
+            --btc-gold: #f7931a;
         }
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; color: #0f172a; }
         .heading { font-family: 'Lexend', sans-serif; }
         .mono { font-family: 'Space Mono', monospace; }
 
         .scam-card {
             background: white;
             border: 1px solid #e2e8f0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-bottom: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
         }
         .scam-card:hover {
-            transform: translateY(-5px);
-            border-bottom-color: var(--gov-gold);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 31, 63, 0.15);
+            border-color: var(--gov-gold);
+        }
+        .scam-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--gov-navy);
+            opacity: 0.1;
+        }
+        .scam-card:hover::after { background: var(--gov-gold); opacity: 1; }
+
+        .search-bar {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
         .search-bar:focus {
             outline: none;
-            border-color: var(--gov-gold);
-            box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1);
+            border-color: var(--gov-navy);
+            box-shadow: 0 0 0 4px rgba(0, 31, 63, 0.1);
+            background: white;
         }
+
+        .filter-btn {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            color: var(--gov-navy);
+            border-bottom-color: var(--gov-gold);
+        }
+
+        /* Specialized Icon Colors */
+        .icon-cashapp { color: var(--cashapp-green); }
+        .icon-zelle { color: var(--zelle-purple); }
+        .icon-crypto { color: var(--btc-gold); }
+        .icon-bank { color: #1e40af; }
+        .icon-legal { color: #b91c1c; }
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="bg-[#001f3f] text-white py-16 px-6 text-center border-b-4 border-amber-600">
-        <div class="max-w-4xl mx-auto">
-            <div class="inline-block bg-amber-600/20 text-amber-500 px-4 py-1 rounded-full text-[10px] font-black tracking-[0.3em] uppercase mb-6">
-                Recovery Database Alpha-2026
+    <header class="bg-[#001f3f] text-white py-20 px-6 relative overflow-hidden border-b-8 border-amber-600">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+        </div>
+        
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full mb-8">
+                <span class="h-2 w-2 bg-green-500 rounded-full animate-ping"></span>
+                <span class="text-[10px] font-black tracking-[0.4em] uppercase">Intelligence Node: 84-Active Vectors</span>
             </div>
-            <h1 class="heading text-4xl md:text-6xl font-black mb-6 leading-tight uppercase tracking-tighter">Asset Recovery <span class="text-amber-500">Jurisdictions</span></h1>
-            <p class="text-blue-200 text-sm md:text-base leading-relaxed opacity-80 max-w-2xl mx-auto">
-                Our intelligence units specialize in 80+ distinct fraud vectors. Select your specific category below to initiate the forensic retrieval process.
+            <h1 class="heading text-5xl md:text-7xl font-black mb-8 leading-[0.9] uppercase tracking-tighter">
+                Recovery <span class="text-amber-500">Divisions</span>
+            </h1>
+            <p class="text-blue-100/70 text-sm md:text-lg leading-relaxed max-w-3xl mx-auto font-medium">
+                Our forensic teams operate across 80+ specialized jurisdictions. Every case is assigned to a dedicated unit with specific protocol clearance for the targeted platform.
             </p>
         </div>
     </header>
 
-    <section class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row gap-4 justify-between items-center">
-            <div class="relative w-full md:w-96">
-                <input type="text" id="scamSearch" placeholder="Search categories (e.g. Cash App, Bitcoin)..." 
-                       class="search-bar w-full pl-10 pr-4 py-3 bg-slate-100 rounded-lg text-sm border border-slate-200">
-                <span class="absolute left-3 top-3.5 opacity-30 text-lg">🔍</span>
+    <section class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col lg:flex-row gap-6 justify-between items-center">
+            <div class="relative w-full lg:w-1/3">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="scamSearch" placeholder="Search vectors (e.g. Zelle, Wire Transfer)..." 
+                       class="search-bar w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-[#001f3f]">
             </div>
-            <div class="flex gap-4 text-[10px] font-black uppercase tracking-widest text-slate-500">
-                <span class="text-amber-600 border-b-2 border-amber-600 pb-1">All Vectors</span>
-                <span class="cursor-pointer hover:text-[#001f3f]">Digital Assets</span>
-                <span class="cursor-pointer hover:text-[#001f3f]">P2P Payments</span>
+            
+            <div class="flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-slate-400 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0">
+                <button class="filter-btn active whitespace-nowrap">All Units</button>
+                <button class="filter-btn whitespace-nowrap">Crypto-Assets</button>
+                <button class="filter-btn whitespace-nowrap">P2P Networks</button>
+                <button class="filter-btn whitespace-nowrap">Bank Wires</button>
+                <button class="filter-btn whitespace-nowrap">Social Forensic</button>
             </div>
         </div>
     </section>
 
-    <main class="max-w-7xl mx-auto px-6 py-16">
-        <div id="scamGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <main class="max-w-7xl mx-auto px-6 py-20">
+        <div id="scamGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             </div>
     </main>
 
-    <footer class="bg-[#001f3f] text-white py-12 px-6 text-center">
-        <p class="text-[10px] font-bold tracking-widest uppercase opacity-40 mb-4">Official Node // Bureau of Fraud Intelligence</p>
-        <a href="index.html" class="text-amber-500 hover:underline text-xs font-bold uppercase">Return to Main Portal</a>
+    <footer class="bg-[#001f3f] text-white pt-20 pb-10 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <img src="fraud.jpeg" class="h-10 w-10 brightness-200">
+                    <span class="heading font-black text-xl tracking-tighter uppercase">BFI GLOBAL</span>
+                </div>
+                <p class="text-[11px] text-blue-200/50 leading-relaxed uppercase font-bold tracking-widest">
+                    Authorized Forensic Recovery Portal <br> Division of International Asset Management
+                </p>
+            </div>
+            <div class="col-span-2 flex flex-col items-center md:items-end justify-center">
+                <a href="index.html" class="text-amber-500 border border-amber-500/30 px-8 py-3 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-amber-500 hover:text-[#001f3f] transition-all">
+                    Return to Commander Dashboard
+                </a>
+            </div>
+        </div>
+        <div class="text-center pt-10 border-t border-white/5">
+            <p class="text-[9px] font-bold text-slate-500 tracking-[0.5em] uppercase">© 2026 BUREAU OF FRAUD INTELLIGENCE | ALL ASSETS PROTECTED</p>
+        </div>
     </footer>
 
     <script>
-        // DATA OBJECTS: 80+ Categories
         const categories = [
-            { name: "Cash App Recovery", desc: "Retrieval of unauthorized Cash App transfers and accidental payment errors.", icon: "💸" },
-            { name: "Zelle Fraud Unit", desc: "Specialized tracing for bank-integrated Zelle scams and unauthorized access.", icon: "🏦" },
-            { name: "Venmo Disbursement", desc: "Resolution for Venmo business and personal account fraud.", icon: "📱" },
-            { name: "Bitcoin Tracing", desc: "Blockchain forensic analysis to track stolen BTC to custodial exchanges.", icon: "₿" },
-            { name: "Ethereum Recovery", desc: "Smart contract audit and retrieval for ERC-20 token theft.", icon: "💎" },
-            { name: "Romance Scam Unit", desc: "Social engineering reversal and asset retrieval from emotional exploitation.", icon: "❤️" },
-            { name: "Binary Options", desc: "Legal recovery from unlicensed binary trading platforms and offshore brokers.", icon: "📉" },
-            { name: "Forex Trading Scam", desc: "Retrieval of capital from fraudulent MT4/MT5 trading groups.", icon: "📊" },
-            { name: "NFT Asset Theft", desc: "Tracking stolen digital collectibles across OpenSea and other marketplaces.", icon: "🖼️" },
-            { name: "Wire Transfer Recall", desc: "SWIFT and SEPA transfer reversal intelligence for high-value fraud.", icon: "🌐" },
-            { name: "Gift Card Fraud", desc: "Tracing and freezing of Amazon, Apple, and Razer Gold gift card codes.", icon: "🎁" },
-            { name: "PayPal Dispute Max", desc: "Expert intervention for PayPal Goods & Services and F&F fraud.", icon: "🅿️" },
-            { name: "Identity Hijack", desc: "Full restoration of financial identity and freezing of fraudulent credit lines.", icon: "🆔" },
-            { name: "Fake Job Scam", desc: "Recovery of 'equipment checks' and processing fees from fraudulent employers.", icon: "💼" },
-            { name: "Real Estate Fraud", desc: "Intelligence for wire fraud involving title companies and rental deposits.", icon: "🏠" },
-            { name: "Lottery Winnings", desc: "Retrieval of 'processing fees' paid to fake international lottery agents.", icon: "🎫" },
-            { name: "Tech Support Scam", desc: "Recovery of funds paid to fake Microsoft or Apple support agents.", icon: "🖥️" },
-            { name: "Pig Butchering", desc: "Complex recovery for long-term crypto investment trust scams.", icon: "🐖" },
-            { name: "PCH Recovery", desc: "Publishers Clearing House impersonation recovery unit.", icon: "🏆" },
-            { name: "Social Media Hack", desc: "Asset recovery linked to compromised Instagram and Facebook accounts.", icon: "💬" }
+            { name: "Cash App Recovery", desc: "Peer-to-peer reversal protocols for unauthorized Cashtag disbursements and merchant disputes.", icon: "fa-solid fa-money-bill-transfer", color: "icon-cashapp" },
+            { name: "Zelle Fraud Unit", desc: "Inter-bank network tracing for Zelle 'Pay Yourself' scams and unauthorized account access.", icon: "fa-solid fa-building-columns", color: "icon-zelle" },
+            { name: "Venmo Disbursement", desc: "Forensic audit for Venmo 'Buyer Protection' failures and unauthorized personal transfers.", icon: "fa-solid fa-mobile-screen-button", color: "icon-bank" },
+            { name: "Bitcoin Tracing", desc: "UTXO analysis and blockchain tracking to identify exit points and custodial exchange wallets.", icon: "fa-brands fa-bitcoin", color: "icon-crypto" },
+            { name: "Ethereum Recovery", desc: "Smart contract audit for ERC-20 token theft and malicious wallet permission removal.", icon: "fa-brands fa-ethereum", color: "icon-crypto" },
+            { name: "Romance Scam Unit", desc: "Psychological profile tracing and financial retrieval for international social engineering fraud.", icon: "fa-solid fa-heart-crack", color: "icon-legal" },
+            { name: "Binary Options", desc: "Asset recapture from unlicensed binary trading platforms and high-leverage offshore brokers.", icon: "fa-solid fa-chart-line", color: "icon-legal" },
+            { name: "Forex Trading Scam", desc: "Reclamation of capital from fraudulent MetaTrader 4/5 signal groups and fake brokers.", icon: "fa-solid fa-arrow-trend-up", color: "icon-bank" },
+            { name: "NFT Asset Theft", desc: "Tracing of stolen digital assets across EVM-compatible chains and NFT marketplaces.", icon: "fa-solid fa-gem", color: "icon-crypto" },
+            { name: "Wire Transfer Recall", desc: "High-level SWIFT/FedWire recall intelligence for institutional and corporate fraud victims.", icon: "fa-solid fa-earth-americas", color: "icon-bank" },
+            { name: "Gift Card Fraud", desc: "Real-time tracking and redemption freezing for major retail and digital gift card vouchers.", icon: "fa-solid fa-ticket", color: "icon-legal" },
+            { name: "PayPal Dispute Max", desc: "Strategic arbitration for PayPal Goods & Services fraud and unauthorized Gifting transactions.", icon: "fa-brands fa-paypal", color: "icon-bank" },
+            { name: "Identity Hijack", desc: "Full-spectrum identity restoration and blocking of fraudulent credit inquiries and loans.", icon: "fa-solid fa-user-shield", color: "icon-legal" },
+            { name: "Fake Job Scam", desc: "Recovery of 'advance fees' and fraudulent equipment check deposits from fake employers.", icon: "fa-solid fa-briefcase", color: "icon-bank" },
+            { name: "Real Estate Fraud", desc: "Intelligence for escrow wire fraud, rental deposit scams, and title theft investigations.", icon: "fa-solid fa-house-lock", color: "icon-bank" },
+            { name: "Lottery Winnings", desc: "Interception of 'clearance fee' payments sent to fake international prize distributors.", icon: "fa-solid fa-trophy", color: "icon-legal" },
+            { name: "Tech Support Scam", desc: "Recovery of funds paid to fake OS security providers and remote access scammers.", icon: "fa-solid fa-desktop", color: "icon-bank" },
+            { name: "Pig Butchering", desc: "Comprehensive recovery protocols for long-term cryptocurrency trust and investment scams.", icon: "fa-solid fa-vault", color: "icon-crypto" },
+            { name: "PCH Recovery", desc: "Specific unit for Publishers Clearing House impersonation and winner fee retrieval.", icon: "fa-solid fa-medal", color: "icon-legal" },
+            { name: "Social Media Hack", desc: "Asset recovery linked to compromised Instagram, Facebook, and Telegram accounts.", icon: "fa-solid fa-share-nodes", color: "icon-bank" }
         ];
 
-        // Generate the remaining 60 dynamically to hit 80+
-        const genericTypes = ["Investment", "Crypto", "Bank", "P2P", "Loan", "Insurance", "Tax", "Grant"];
-        const suffixes = ["Forensics", "Retrieval", "Intelligence", "Audit", "Recapture", "Registry", "Protocol"];
+        // Generate the 60 additional vectors
+        const prefixes = ["Institutional", "Offshore", "Digital", "Private", "Global", "Federal", "Smart", "Forensic"];
+        const mid = ["Asset", "Fund", "Crypto", "Wire", "Identity", "Equity", "Contract"];
+        const ends = ["Recapture", "Registry", "Protocol", "Intelligence", "Bypass", "Audit"];
 
         for (let i = 0; i < 61; i++) {
-            const type = genericTypes[i % genericTypes.length];
-            const suffix = suffixes[i % suffixes.length];
+            const name = `${prefixes[i % 8]} ${mid[i % 7]} ${ends[i % 6]} #${200 + i}`;
             categories.push({
-                name: `${type} ${suffix} #${100 + i}`,
-                desc: `Advanced forensic protocol for ${type.toLowerCase()} based financial fraud and asset misappropriation.`,
-                icon: "🛡️"
+                name: name,
+                desc: `Unit ${900 + i} specialized in deep-web forensic tracing for ${name.toLowerCase()} related incidents.`,
+                icon: "fa-solid fa-shield-halved",
+                color: "text-slate-400"
             });
         }
 
@@ -121,16 +184,26 @@
         function renderGrid(items) {
             grid.innerHTML = '';
             items.forEach((item, index) => {
+                const randomVerified = Math.floor(Math.random() * 59) + 1;
                 const card = `
-                    <div class="scam-card p-6 rounded-xl" data-aos="fade-up" data-aos-delay="${(index % 4) * 50}">
-                        <div class="text-3xl mb-4">${item.icon}</div>
-                        <h3 class="heading font-black text-[#001f3f] text-sm uppercase mb-2 tracking-tight">${item.name}</h3>
-                        <p class="text-xs text-slate-500 leading-relaxed mb-6 h-12 overflow-hidden italic">
+                    <div class="scam-card p-8 rounded-2xl flex flex-col" data-aos="fade-up" data-aos-delay="${(index % 4) * 50}">
+                        <div class="flex justify-between items-start mb-6">
+                            <i class="${item.icon} text-4xl ${item.color}"></i>
+                            <span class="mono text-[9px] font-bold text-slate-300 uppercase tracking-tighter">LVL-4 CLEARANCE</span>
+                        </div>
+                        <h3 class="heading font-black text-[#001f3f] text-sm uppercase mb-3 leading-tight tracking-tighter h-10 overflow-hidden">${item.name}</h3>
+                        <p class="text-[11px] text-slate-500 font-medium leading-relaxed mb-8 flex-grow">
                             ${item.desc}
                         </p>
+                        <div class="mb-6 pt-4 border-t border-slate-50">
+                             <div class="flex justify-between items-center text-[9px] font-black uppercase tracking-widest text-emerald-600">
+                                <span><i class="fa-solid fa-circle-check mr-1"></i> Last Verified</span>
+                                <span class="mono">${randomVerified}m ago</span>
+                             </div>
+                        </div>
                         <a href="register.html?category=${encodeURIComponent(item.name)}" 
-                           class="block text-center bg-[#001f3f] text-white text-[10px] font-black py-2 rounded uppercase tracking-widest hover:bg-amber-600 transition">
-                            Initiate Retrieval
+                           class="w-full bg-[#001f3f] text-white text-[10px] font-black py-4 rounded-xl uppercase tracking-[0.2em] hover:bg-amber-600 transition-all text-center shadow-lg shadow-blue-900/10">
+                            Open Case File
                         </a>
                     </div>
                 `;
@@ -138,7 +211,6 @@
             });
         }
 
-        // Search Filter Logic
         searchInput.addEventListener('input', (e) => {
             const term = e.target.value.toLowerCase();
             const filtered = categories.filter(c => 
@@ -148,9 +220,10 @@
             renderGrid(filtered);
         });
 
-        // Initial render
-        renderGrid(categories);
-        AOS.init({ duration: 600, once: true });
+        window.onload = () => {
+            renderGrid(categories);
+            AOS.init({ duration: 800, once: true, offset: 50 });
+        };
     </script>
 </body>
 </html>
